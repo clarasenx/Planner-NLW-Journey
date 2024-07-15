@@ -57,10 +57,10 @@ export default function CreateTripPage() {
   }
 
   function closeConfirmTripModal() {
-    return
+    return setIsConfirmTripModalOpen(false)
   }
   function openConfirmTripModal() {
-    return
+    return setIsConfirmTripModalOpen(true)
   }
 
   function createTrip() {
