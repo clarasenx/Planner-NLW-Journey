@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Settings2, Plus, CircleCheck } from 'lucide-react'
+import { Calendar, MapPin, Settings2, Plus, CircleCheck, Link2, UserCog, CircleDashed } from 'lucide-react'
 
 export function TripDetailsPage() {
   return (
@@ -72,10 +72,33 @@ export function TripDetailsPage() {
 
         </div>
 
-        <div className='w-88 space-y-6'>
+        <div className='w-80 space-y-6'>
           <div className='space-y-6'>
             <h2 className='font-semibold text-xl'>Links Importantes</h2>
-            <button className='bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg px-5 py-2 font-medium flex items-center gap-2 w-full'>
+            
+            <div className='space-y-5'>
+              {/* links */}
+              <div className='flex items-center justify-between'>
+                <div className='space-y-1.5'>
+                  <span className='block font-medium text-zinc-100'>Reserva Hotel</span>
+                  <a href='#' className='block text-xs text-zinc-400 hover:text-zinc-200 truncate'>
+                    https://google.com/asdanholikhndolik8888888888888888888888888hosdnhsdholis</a>
+                </div>
+                <Link2 className='size-5 text-zinc-400 shrink-0'/>
+              </div>
+
+              <div className='flex items-center justify-between'>
+                <div className='space-y-1.5'>
+                  <span className='block font-medium text-zinc-100'>Reserva Hotel</span>
+                  <a href='#' className='block text-xs text-zinc-400 hover:text-zinc-200 truncate'>
+                    https://google.com/asdanholikhndolik8888888888888888888888888hosdnhsdholis</a>
+                </div>
+                <Link2 className='size-5 text-zinc-400 shrink-0'/>
+              </div>
+
+            </div>
+
+            <button className='bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg px-5 h-11 font-medium flex items-center justify-center gap-2 w-full'>
               <Plus className='size-5'/>
               Cadastrar novo link
             </button>
@@ -83,7 +106,36 @@ export function TripDetailsPage() {
 
           <div className='w-full h-px bg-zinc-800'/>
 
-          <div></div>
+          <div className='space-y-6'>
+            <h2 className='font-semibold text-xl'>Convidados</h2>
+            
+            <div className='space-y-5'>
+              {/* links */}
+              <div className='flex items-center justify-between'>
+                <div className='space-y-1.5'>
+                  <span className='block font-medium text-zinc-100'>Nome do usuário</span>
+                  <span className='block text-sm text-zinc-400 truncate'>
+                  Email do usuário</span>
+                </div>
+                <CircleDashed className='size-5 text-zinc-400 shrink-0'/>
+              </div>
+              
+              <div className='flex items-center justify-between'>
+                <div className='space-y-1.5'>
+                  <span className='block font-medium text-zinc-100'>Nome do usuário</span>
+                  <span className='block text-sm text-zinc-400 truncate'>
+                  Email do usuário</span>
+                </div>
+                <CircleCheck className='size-5 text-lime-300 shrink-0'/>
+              </div>
+
+            </div>
+
+            <button className='bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg px-5 h-11 font-medium flex items-center justify-center gap-2 w-full'>
+              <UserCog className='size-5'/>
+                Gerenciar convidados
+            </button>
+          </div>
         </div>
       </main>
     </div>
