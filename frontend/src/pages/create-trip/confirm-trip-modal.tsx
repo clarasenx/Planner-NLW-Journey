@@ -31,7 +31,7 @@ export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTri
               <input type='email' name = 'email' className = 'bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' placeholder = 'Seu e-mail pessoal' />
             </div>
 
-          <Button size='full'> 
+          <Button type='submit' size='full'> 
             Confirmar criação da viagem
             <Plus className = 'size-5'/> 
           </Button>

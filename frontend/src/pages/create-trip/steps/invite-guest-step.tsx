@@ -23,7 +23,7 @@ export function InviteGuestStep({openConfirmTripModal,emailsToInvite,openGuestsM
 
       <div className='w-px h-6 bg-zinc-800'/>
       
-      <Button onClick={openConfirmTripModal}>
+      <Button type='submit' onClick={openConfirmTripModal}>
         Confirmar viagem?
         <ArrowRight className='size-5'/>
       </Button>
