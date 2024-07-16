@@ -1,4 +1,5 @@
 import { UserRoundPlus, ArrowRight } from 'lucide-react';
+import { Button } from '../../components/button'
 
 interface InviteGuestStepProps {
   openGuestsModal: () => void
@@ -10,21 +11,22 @@ export function InviteGuestStep({openConfirmTripModal,emailsToInvite,openGuestsM
   return (
     <div className='flex items-center gap-3 px-4 h-16 bg-zinc-900 rounded-xl shadow-shape'>
       <div className='flex items-center gap-2 flex-1'>
-        <button type='button' onClick={openGuestsModal} className='flex items-center gap-2 flex-1'>
+        <Button onClick={openGuestsModal} variant='secondary' size='full'>
           <UserRoundPlus className="size-5 text-zinc-400 flex gap-2"/>{emailsToInvite.length > 0 ? (
                   <span className='text-zinc-100'>{emailsToInvite.length} pessoa(s) convidada(s)
                   </span>
                 ) : (
                   <span className='text-lg text-zinc-400 flex-1 text-left'>Quem estará na viagem?</span>
                 )}
-        </button>
+        </Button>
       </div>
 
       <div className='w-px h-6 bg-zinc-800'/>
       
-      <button onClick={openConfirmTripModal} className='flex items-center gap-2  bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium hover:bg-lime-400'>Confirmar viagem?
+      <Button onClick={openConfirmTripModal}>
+        Confirmar viagem?
         <ArrowRight className='size-5'/>
-      </button>
+      </Button>
     </div>
   )
 }
