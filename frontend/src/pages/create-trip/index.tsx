@@ -1,8 +1,9 @@
-import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2 } from 'lucide-react'
+import { ArrowRight, UserRoundPlus } from 'lucide-react'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InviteGuestsModal } from './invite-guests-modal'
 import { ConfirmTripModal } from './confirm-trip-modal'
+import { DestinationDateSteps } from './steps/destination-date-steps'
 
 export default function CreateTripPage() {
   const navigate = useNavigate()
@@ -80,29 +81,11 @@ export default function CreateTripPage() {
         </div>
         
         <div className='space-y-4'>
-          <div className='flex items-center gap-3 px-5 h-16 bg-zinc-900 rounded-xl shadow-shape'>
-
-            <div className='flex items-center gap-2 flex-1'>  
-              <MapPin className="size-5 text-zinc-400 flex gap-2"/>
-              <input disabled={isGuestInputOpen} className='bg-transparent text-lg placeholder-zinc-400 outline-none flex-1' type="text" placeholder='Para onde você vai?'/>
-            </div>
-
-            <div className='flex items-center gap-2 min-w-'>  
-              <Calendar className="size-5 text-zinc-400"/>
-              <input disabled={isGuestInputOpen} className='bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' type="text" placeholder='Quando?'/>
-            </div>
-
-            <div className='w-px h-6 bg-zinc-800'/>
-
-              {isGuestInputOpen ? (
-                <button onClick={closeGuestInput} className='flex items-center gap-2  bg-zinc-800 text-zinc-200 rounded-lg px-5 py-2 font-medium hover:bg-zinc-700'>Alterar local/data
-                <Settings2 className='size-5' />
-                </button>
-              ) : (
-                <button onClick={openGuestInput} className='flex items-center gap-2  bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium hover:bg-lime-400'>Continuar <ArrowRight className='size-5'/></button>
-              )}
-
-          </div>
+          <DestinationDateSteps
+          closeGuestInput={closeGuestInput}
+          isGuestInputOpen={isGuestInputOpen} 
+          openGuestInput={openGuestInput}
+          />
         
             {isGuestInputOpen && (
               <div className='flex items-center gap-3 px-5 h-16 bg-zinc-900 rounded-xl shadow-shape'>
