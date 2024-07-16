@@ -1,5 +1,6 @@
 import { MapPin, Calendar, Settings2, ArrowRight } from 'lucide-react'
 import { Button } from '../../components/button'
+import { useState } from 'react'
 
 interface DestinationDateStepsProps {
   isGuestInputOpen: boolean
@@ -10,6 +11,13 @@ interface DestinationDateStepsProps {
 export function DestinationDateSteps({
   openGuestInput, closeGuestInput, isGuestInputOpen
 }: DestinationDateStepsProps) {
+
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+
+  function openDatePicker() {
+    return setIsDatePickerOpen(true)
+  }
+
   return (
     <div className='flex items-center gap-3 px-5 h-16 bg-zinc-900 rounded-xl shadow-shape'>
       <div className='flex items-center gap-2 flex-1'>  
@@ -17,10 +25,12 @@ export function DestinationDateSteps({
         <input disabled={isGuestInputOpen} className='bg-transparent text-lg placeholder-zinc-400 outline-none flex-1' type="text" placeholder='Para onde você vai?'/>
       </div>
 
-      <div className='flex items-center gap-2 min-w-'>  
+      <button disabled={isGuestInputOpen} onClick={openDatePicker} className='flex items-center outline-none gap-2 text-left'>  
         <Calendar className="size-5 text-zinc-400"/>
-        <input disabled={isGuestInputOpen} className='bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' type="text" placeholder='Quando?'/>
-      </div>
+        <span className='text-lg text-zinc-400 flex-1 w-40 '>
+          Quando?
+        </span>
+      </button>
 
       <div className='w-px h-6 bg-zinc-800'/>
 
