@@ -1,7 +1,8 @@
-import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2, X, Plus, User,  Mail } from 'lucide-react'
+import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2 } from 'lucide-react'
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InviteGuestsModal } from './invite-guests-modal'
+import { ConfirmTripModal } from './confirm-trip-modal'
 
 export default function CreateTripPage() {
   const navigate = useNavigate()
@@ -64,7 +65,8 @@ export default function CreateTripPage() {
     return setIsConfirmTripModalOpen(true)
   }
 
-  function createTrip() {
+  function createTrip(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
     navigate("/trips/123")
   }
 
@@ -138,43 +140,11 @@ export default function CreateTripPage() {
       }
 
       {isConfirmTripModalOpen && (
-         <div className='fixed inset-8 bg-black/60 flex items-center justify-center'>
-          <div className='w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5'>
-            <div className='space-y-2'>
-              <div className='flex items-center justify-between'>
-                <h2 className='text-lg font-semibold'>Confirmar criação de viagem</h2>
-                <button>
-                <X onClick={closeConfirmTripModal} className='size-5 text-zinc-400'/>
-                </button>
-              </div>
-              <p className='text-sm text-zinc-400'>Para concluir a criação da viagem para <span className='font-semibold text-zinc-100'>Florianópolis, Brasil</span> nas datas de <span className='font-semibold text-zinc-100'>16 a 27 de agosto de 2024</span> preencha os dados a seguir:</p>
-            </div>
+        <ConfirmTripModal 
+        closeConfirmTripModal={closeConfirmTripModal}
+        createTrip={createTrip}
+        />
 
-            <form onSubmit={addNewEmailToInvite} className='space-y-3'>
-              <div className='px-2.5 h-14 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center flex-1 gap-2'>
-                <User className='text-zinc-400 size-5'/>
-                <input
-                  name='nome' 
-                  className='bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' 
-                  placeholder='Seu nome completo'/>
-              </div>
-              <div className='px-2.5 h-14 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center flex-1 gap-2'>
-                <Mail className='text-zinc-400 size-5'/>
-                <input
-                  type='email' 
-                  name='email' 
-                  className='bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' 
-                  placeholder='Seu e-mail pessoal'/>
-              </div>
-
-              <button 
-                onClick={createTrip}
-                type='submit' 
-                className='flex items-center gap-2 w-full justify-center bg-lime-300 text-lime-950 rounded-lg px-5 h-11 font-medium hover:bg-lime-400'>Confirmar criação da viagem
-                <Plus className='size-5'/></button>
-            </form>
-          </div>
-        </div>
       )}
     </div>
   )
