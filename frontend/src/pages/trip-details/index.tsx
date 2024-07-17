@@ -1,7 +1,7 @@
 import { Calendar, MapPin, Plus, Settings2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '../../components/button'
-import { Activities } from './activity-list'
+import { Activities } from './activities'
 import { CreateActivityModal } from "./create-activity-modal"
 import { Guests } from './guest-list'
 import { ImportantLinks } from './important-links'
