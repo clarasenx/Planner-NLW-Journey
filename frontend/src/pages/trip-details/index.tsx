@@ -1,10 +1,10 @@
-import { Calendar, MapPin, Settings2, Plus } from 'lucide-react'
+import { Calendar, MapPin, Plus, Settings2 } from 'lucide-react'
 import { useState } from 'react'
-import { CreateActivityModal } from "./create-activity-modal"
-import { ImportantLinks } from './important-links'
+import { Button } from '../../components/button'
 import { Activitylist } from './activity-list'
-import { Button } from '../components/button'
+import { CreateActivityModal } from "./create-activity-modal"
 import { GuestList } from './guest-list'
+import { ImportantLinks } from './important-links'
 
 export function TripDetailsPage() {
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false)

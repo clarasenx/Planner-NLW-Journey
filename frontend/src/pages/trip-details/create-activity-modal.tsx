@@ -1,5 +1,5 @@
-import { X, Tag, Calendar } from 'lucide-react'
-import { Button } from '../components/button'
+import { Calendar, Tag, X } from 'lucide-react'
+import { Button } from '../../components/button'
 
 interface CreateActivityModalProps {
   closeCreateActivityModal: () => void
@@ -29,10 +29,6 @@ export function CreateActivityModal({closeCreateActivityModal}:CreateActivityMod
               <Calendar className='text-zinc-400 size-5' />
               <input type='datetime-local' name = 'occurs_at' className = 'bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' placeholder = 'Data e horário da atividade' />
             </div>
-
-
-            
-
             <Button variant='primary' size='full'>
               Salvar atividade
             </Button>

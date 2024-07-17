@@ -1,5 +1,5 @@
-import { CircleDashed, CircleCheck, UserCog } from 'lucide-react';
-import { Button } from '../components/button'
+import { CircleCheck, CircleDashed, UserCog } from 'lucide-react';
+import { Button } from '../../components/button';
 
 export function GuestList() {
   return (
