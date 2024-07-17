@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Button } from '../../components/button'
 import { Activitylist } from './activity-list'
 import { CreateActivityModal } from "./create-activity-modal"
-import { GuestList } from './guest-list'
+import { Guests } from './guest-list'
 import { ImportantLinks } from './important-links'
 import { useParams } from 'react-router-dom'
 import { api } from '../../lib/axios'
@@ -84,7 +84,7 @@ export function TripDetailsPage() {
 
           <div className='w-full h-px bg-zinc-800'/>
 
-          <GuestList/>
+          <Guests/>
         </div>
       </main>
 

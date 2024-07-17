@@ -5,18 +5,18 @@ import { Button } from '../../components/button';
 import { api } from '../../lib/axios';
 
 interface Participant {
-  id: string
-  name: string | null
-  email: string
-  is_confirmed: boolean
+  id: string;
+  name: string | null;
+  email: string;
+  is_confirmed: boolean;
 }
 
-export function GuestList() {
+export function Guests() {
   const { tripId } = useParams()
-  const [participants, setParticipants] = useState<Participant[] | []>()
+  const [participants, setParticipants] = useState<Participant[]>([])
 
   useEffect(() => {
-    api.get(`/trips/%${tripId}/participants`).then(response => setParticipants(response.data.participants))
+    api.get(`/trips/${tripId}/participants`).then(response => setParticipants(response.data.participants))
   }, [tripId])
 
   return (
