@@ -24,15 +24,15 @@ export function Guests() {
       <h2 className='font-semibold text-xl'>Convidados</h2>
       <div className='space-y-5'>
         {/* links */}
-        {participants?.map(participant => {
+        {participants?.map((participant, index) => {
           return (
             <div key={participant.id} className='flex items-center justify-between'>
               <div className='space-y-1.5'>
-                <span className='block font-medium text-zinc-100'>{participant.name}</span>
+                <span className='block font-medium text-zinc-100'>{participant.name ?? `Convidado ${index}`}</span>
                 <span className='block text-sm text-zinc-400 truncate'>{participant.email}</span>
               </div>
               {participant.is_confirmed ? (
-                <CircleCheck className='size-5 text-zinc-400 shrink-0'/>
+                <CircleCheck className='size-5 text-lime-300 shrink-0'/>
               ) : (
                 <CircleDashed className='size-5 text-zinc-400 shrink-0'/>
               )}
