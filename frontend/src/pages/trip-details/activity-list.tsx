@@ -14,7 +14,7 @@ interface Activity {
   }[]
 }
 
-export function Activity() {
+export function Activities() {
   const { tripId } = useParams()
   const [activities, setActivities] = useState<Activity[]>([])
 
