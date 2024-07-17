@@ -5,9 +5,11 @@ import { Button } from '../components/button'
 interface ConfirmTripModalProps{
   closeConfirmTripModal: () => void
   createTrip: (event: FormEvent<HTMLFormElement>) => void
+  setOwnerName: (name: string) => void
+  setOwnerMail: (mail: string) => void
 }
 
-export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTripModalProps) {
+export function ConfirmTripModal({closeConfirmTripModal, createTrip, setOwnerMail, setOwnerName}: ConfirmTripModalProps) {
   return (
     <div className= 'fixed inset-8 bg-black/60 flex items-center justify-center' >
       <div className='w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5' >
@@ -24,11 +26,18 @@ export function ConfirmTripModal({closeConfirmTripModal, createTrip}: ConfirmTri
         <form onSubmit={createTrip} className = 'space-y-3' >
             <div className='px-2.5 h-14 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center flex-1 gap-2' >
               <User className='text-zinc-400 size-5' />
-              <input name='nome' className = 'bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' placeholder = 'Seu nome completo'/>
+              <input 
+              onChange={event => setOwnerName(event.target.value)}
+              name='nome' 
+              className = 'bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' placeholder = 'Seu nome completo'/>
             </div>
             <div className = 'px-2.5 h-14 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center flex-1 gap-2' >
               <Mail className='text-zinc-400 size-5' />
-              <input type='email' name = 'email' className = 'bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' placeholder = 'Seu e-mail pessoal' />
+              <input 
+              onChange={event => setOwnerMail(event.target.value)}
+              type='email' 
+              name = 'email' 
+              className = 'bg-transparent text-lg placeholder-zinc-400 flex-1 w-40 outline-none' placeholder = 'Seu e-mail pessoal' />
             </div>
 
           <Button type='submit' size='full'> 
