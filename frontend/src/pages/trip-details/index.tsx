@@ -1,7 +1,7 @@
 import { Calendar, MapPin, Plus, Settings2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from '../../components/button'
-import { Activitylist } from './activity-list'
+import { Activity } from './activity-list'
 import { CreateActivityModal } from "./create-activity-modal"
 import { Guests } from './guest-list'
 import { ImportantLinks } from './important-links'
@@ -74,7 +74,7 @@ export function TripDetailsPage() {
             </Button>
           </div>
           
-          <Activitylist/>
+          <Activity/>
 
         </div>
 
