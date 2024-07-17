@@ -75,22 +75,24 @@ export default function CreateTripPage() {
     return setIsConfirmTripModalOpen(true)
   }
 
-  function createTrip(event: FormEvent<HTMLFormElement>) {
+  async function createTrip(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    // navigate("/trips/123")
-    console.log(destination)
-    console.log(ownerMail)
-    console.log(ownerName)
-    console.log(eventStartAndEndDates)
 
-    api.post('/trips', {
+    if (!destination || !ownerMail || !ownerName || !eventStartAndEndDates?.from || !eventStartAndEndDates?.to || emailsToInvite.length === 0) {
+      return
+    }
+    
+    const response = await api.post('/trips', {
       destination,
-      starts_at: '',
-      ends_at: '',
-      emails_to_invite: [''],
-      owner_name: '',
-      owner_mail: '',
+      starts_at: eventStartAndEndDates.from,
+      ends_at: eventStartAndEndDates.to,
+      emails_to_invite: [emailsToInvite],
+      owner_name: ownerName,
+      owner_mail: ownerMail,
     })
+
+    const { tripId } = response.data
+    navigate(`/trips/${tripId}`)
   }
 
   return (
